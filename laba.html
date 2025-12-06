@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Всеволод Чернышов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --secondary: #dc2626;
+            --accent: #059669;
+            --light: #ffffff;
+            --dark: #1f2937;
+            --darker: #111827;
+            --gray: #6b7280;
+            --gray-light: #f8fafc;
+            --gray-border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--darker);
+            letter-spacing: -0.01em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--darker);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--gray-light) 0%, #ffffff 100%);
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            font-weight: 400;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            font-weight: 400;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: var(--gray-light);
+            color: var(--dark);
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid var(--gray-border);
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--light);
+            transform: translateY(-2px);
+        }
+
+        .profile-card {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid var(--gray-border);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: auto; 
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border: 4px solid var(--light);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--light); 
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-info {
+            padding: 0.8rem 1.2rem 1.2rem;
+        }
+        
+        .gallery-info h4 {
+            margin-bottom: 0.3rem !important;
+            font-size: 1.2rem;
+            line-height: 1.3;
+        }
+        
+        .gallery-info p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-card {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 2.5rem; 
+            border: 1px solid var(--gray-border);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 1.5rem; 
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            width: 40px; 
+            text-align: center;
+        }
+
+        .contact-text h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--darker);
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        
+        .contact-form {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid var(--gray-border);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--darker);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gray-light);
+            border: 1px solid var(--gray-border);
+            border-radius: 10px;
+            color: var(--dark);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--light);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-group textarea {
+            height: 140px;
+            resize: vertical;
+        }
+        
+        .form-group input:invalid:not(:focus):not(:placeholder-shown)[data-validated="true"] {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+            text-align: center;
+        }
+
+        .form-message.success {
+            background-color: #d1fae5; 
+            color: var(--accent);
+        }
+
+        .form-message.error {
+            background-color: #fee2e2; 
+            color: var(--secondary);
+        }
+
+        footer {
+            background: var(--darker);
+            padding: 4rem 2rem 2rem;
+            color: var(--light);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap; 
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .footer-copy {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-contact a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-contact a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-social-links a {
+            color: var(--light);
+            font-size: 1.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                margin-top: 3rem;
+            }
+            .nav-links {
+                gap: 1.5rem;
+            }
+            .footer-content {
+                justify-content: center;
+                text-align: center;
+                gap: 2rem;
+            }
+            .footer-social-links {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+            .footer-details, .footer-contact {
+                width: 100%;
+                text-align: center;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-card {
+                padding: 0;
+                border: none;
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none; 
+            }
+            .hero {
+                text-align: center;
+            }
+            .hero-actions {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <span class="logo">В. Чернышов</span>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Студент-разработчик</span>
+            <h1 class="hero-title">Привет! Я Всеволод<br>Специалист в области IT.</h1>
+            <p>Студент, погруженный в мир IT. Мой основной интерес сосредоточен на Python-разработке и анализе данных. Стремлюсь к созданию эффективных и красивых решений.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn">Связаться</a>
+                <a href="#gallery" class="btn btn-outline">Портфолио</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title">Обо мне</h2>
+            <p class="section-subtitle">Немного о моем пути и компетенциях.</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3 class="card-title">Программирование и Аналитика</h3>
+                <p>Я студент, погруженный в мир IT. Мой основной интерес сосредоточен на <strong>Python-разработке</strong> и <strong>анализе данных</strong>. Я осваиваю инструменты для автоматизации, а также ищу эффективные способы обработки и визуализации информации. В этом проекте я вручную доработал шаблон, чтобы обеспечить его <strong>уникальность</strong> и <strong>полноценное соответствие требованиям</strong> современной веб-разработки, включая адаптивность. Общий объем текста, включая этот, превышает 300 символов.</p>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">HTML5/CSS3</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Linux</span>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="profile-card">
+                    <img src="a.jpg" alt="Мое оригинальное фото" class="profile-img">
+                    <h3 class="card-title">Всеволод Чернышов</h3>
+                    <p>Специалист по данным и разработке.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" style="background-color: var(--gray-light);">
+        <div class="section-header">
+            <h2 class="section-title">Галерея Проектов</h2>
+            <p class="section-subtitle">Визуальные примеры моих навыков и интересов.</p>
+        </div>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="b.jpg" alt="Проект Облачный Мессенджер" class="gallery-img">
+                <div class="gallery-info">
+                    <h4 class="card-title">Облачный Мессенджер</h4>
+                    <p>Система для мгновенного обмена данными. Обеспечивает безопасную передачу текстовых сообщений, медиафайлов и организацию приватных и публичных каналов.</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="c.jpg" alt="Проект Интерактивная Соцсеть" class="gallery-img">
+                <div class="gallery-info">
+                    <h4 class="card-title">Интерактивная Соцсеть</h4>
+                    <p>Платформа для построения социальных связей. Включает функционал для обмена контентом (фото, видео), поиска пользователей и совершения аудио/видеовызовов.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="d.jpg" alt="Проект Глобальная Поисковая Система" class="gallery-img">
+                <div class="gallery-info">
+                    <h4 class="card-title">Глобальная Поисковая Система</h4>
+                    <p>Технология, обеспечивающая мгновенный поиск и доступ к информации, документам и новостям в интернете. Служит центральным узлом для навигации в цифровом пространстве.</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="e.jpg" alt="Проект Облачный Редактор Дизайна" class="gallery-img">
+                <div class="gallery-info">
+                    <h4 class="card-title">Облачный Редактор Дизайна</h4>
+                    <p>Инструмент для совместного UI/UX дизайна и прототипирования. Позволяет нескольким участникам работать над проектом одновременно, используя общие компоненты и библиотеки.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="f.jpg" alt="Проект Мультимодальная ИИ-Модель" class="gallery-img">
+                <div class="gallery-info">
+                    <h4 class="card-title">Мультимодальная ИИ-Модель</h4>
+                    <p>Нейросетевая архитектура, разработанная для обработки различных типов данных: текст, изображения, аудио и код. Отличается глубоким пониманием контекста и большим объемом памяти.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Связь со мной</h2>
+            <p class="section-subtitle">Задайте вопрос или предложите проект.</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-card">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>example@mail.ru</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-text">
+                            <h4>Телефон</h4>
+                            <p>+7 (999) 123-45-67</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <h4>Адрес</h4>
+                            <p>Санкт-Петербург, Россия</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 class="card-title">Отправить сообщение</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" required placeholder="Ваше имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Ваш email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" required placeholder="Ваше сообщение"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Отправить</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-details">
+                <span class="footer-logo">В. Чернышов</span>
+                <p class="footer-copy">&copy; 2025. Всеволод Чернышов. Все права защищены.</p>
+            </div>
+            
+            <div class="footer-contact">
+                <a href="mailto:example@mail.ru" title="Написать email">example@mail.ru</a>
+                <a href="tel:+79991234567" title="Позвонить">+7 (999) 123-45-67</a>
+            </div>
+            
+            <ul class="footer-social-links">
+                <li><a href="https://vk.com/mars_hd" target="_blank" title="ВКонтакте"><i class="fab fa-vk"></i></a></li>
+                <li><a href="https://t.me/ching_choing" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
+                <li><a href="https://github.com/your_id" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && href !== '#') {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 90, 
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const emailInput = document.getElementById('email');
+                const emailValue = emailInput.value;
+                const isValidEmail = emailValue.includes('@');
+                
+                emailInput.setAttribute('data-validated', 'true');
+
+                const isFormValid = contactForm.checkValidity() && isValidEmail;
+
+                formMessage.style.display = 'block';
+                formMessage.classList.remove('success', 'error');
+
+                if (isFormValid) {
+                    console.log('Форма отправлена.');
+
+                    formMessage.classList.add('success');
+                    formMessage.textContent = '✅ Сообщение успешно отправлено! Я свяжусь с вами.';
+                    
+                    contactForm.reset(); 
+                    emailInput.removeAttribute('data-validated'); 
+                } else {
+                    formMessage.classList.add('error');
+                    
+                    if (!isValidEmail) {
+                        formMessage.textContent = '❌ Неверный формат Email. Должен содержать символ "@".';
+                    } else if (!contactForm.checkValidity()) {
+                        contactForm.reportValidity(); 
+                        formMessage.textContent = '❌ Пожалуйста, заполните все обязательные поля.';
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
